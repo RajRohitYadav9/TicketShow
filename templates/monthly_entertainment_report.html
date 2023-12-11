@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthaly Entertainment Report</title>
+</head>
+<body>
+    <h2>Monthaly Entertainment Report for {{ user.username }}</h2>
+    {% if bookings %}
+        {% for b in bookings %}
+            <p><b>Venue: </b>{{ b.place }}</p>
+            <p><b>Show Name: </b>{{ b.show_name }}</p>
+            <p><b>Date and Time: {{ b.time }}</b></p>
+            <p><b>Number of tickets: </b>{{ b.n_tickets}}</p>
+            <p><b>Paid: </b>{{ b.total_price }}</p>
+        {% endfor %}
+    {% else %}
+    <p>No bookings found</p>
+    {% endif %}
+</body>
+</html>
